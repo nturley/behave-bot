@@ -1,0 +1,334 @@
+{
+  "version": "0.3.0",
+  "scope": "tree",
+  "id": "af9c1e86-77fe-4cfb-ae0b-07b9aec9efe4",
+  "title": "A behavior tree",
+  "description": "",
+  "root": "9d538702-9e73-470e-8d81-4d341ab57b38",
+  "properties": {},
+  "nodes": {
+    "f823dd05-d008-48cc-ba42-109967e6676c": {
+      "id": "f823dd05-d008-48cc-ba42-109967e6676c",
+      "name": "Can Afford?",
+      "title": "Can Afford <UnitType>?",
+      "description": "",
+      "properties": {
+        "UnitType": "SCV"
+      },
+      "display": {
+        "x": 624,
+        "y": -312
+      }
+    },
+    "4e3d49d7-8515-4951-a90b-ee1d8a649232": {
+      "id": "4e3d49d7-8515-4951-a90b-ee1d8a649232",
+      "name": "Find Structure",
+      "title": "\"<label>\" = any <UnitType> structure",
+      "description": "",
+      "properties": {
+        "UnitType": "COMMANDCENTER",
+        "label": "cc"
+      },
+      "display": {
+        "x": 624,
+        "y": -396
+      }
+    },
+    "210da2c8-983b-4717-81a8-95b2d38cef3c": {
+      "id": "210da2c8-983b-4717-81a8-95b2d38cef3c",
+      "name": "Sequence",
+      "title": "Sequence",
+      "description": "",
+      "properties": {},
+      "display": {
+        "x": 408,
+        "y": -264
+      },
+      "children": [
+        "4e3d49d7-8515-4951-a90b-ee1d8a649232",
+        "f823dd05-d008-48cc-ba42-109967e6676c",
+        "1875afef-c5c7-41eb-8ee1-e82b4fc0d9a8",
+        "54e222c7-78ca-475b-aba4-c1f7dc59c81c"
+      ]
+    },
+    "1875afef-c5c7-41eb-8ee1-e82b4fc0d9a8": {
+      "id": "1875afef-c5c7-41eb-8ee1-e82b4fc0d9a8",
+      "name": "Idle?",
+      "title": "is \"<label>\" idle?",
+      "description": "",
+      "properties": {
+        "label": "cc"
+      },
+      "display": {
+        "x": 624,
+        "y": -228
+      }
+    },
+    "54e222c7-78ca-475b-aba4-c1f7dc59c81c": {
+      "id": "54e222c7-78ca-475b-aba4-c1f7dc59c81c",
+      "name": "Train",
+      "title": "\"<trainer>\" train <unitType>",
+      "description": "",
+      "properties": {
+        "trainer": "cc",
+        "unitType": "SCV"
+      },
+      "display": {
+        "x": 624,
+        "y": -132
+      }
+    },
+    "9d538702-9e73-470e-8d81-4d341ab57b38": {
+      "id": "9d538702-9e73-470e-8d81-4d341ab57b38",
+      "name": "Priority",
+      "title": "Priority",
+      "description": "",
+      "properties": {},
+      "display": {
+        "x": 204,
+        "y": 0
+      },
+      "children": [
+        "210da2c8-983b-4717-81a8-95b2d38cef3c",
+        "ccc8a667-09ea-4246-aff4-992c1cdecbd3"
+      ]
+    },
+    "ccc8a667-09ea-4246-aff4-992c1cdecbd3": {
+      "id": "ccc8a667-09ea-4246-aff4-992c1cdecbd3",
+      "name": "Sequence",
+      "title": "Sequence",
+      "description": "",
+      "properties": {},
+      "display": {
+        "x": 408,
+        "y": 264
+      },
+      "children": [
+        "00b6760a-b043-4504-91b2-a668b018320e",
+        "215d3aff-2eb1-48d9-9729-a232a16e93c4",
+        "ff3f326c-758b-4e34-bbfc-2386cca8f7a8",
+        "9b888afa-c169-4094-a67b-92ba1d426eb3",
+        "aca8da7f-3429-46b1-8abb-46c3ae2c01bf",
+        "b664d962-2cf5-48ce-a468-aaa7a01e5e14",
+        "ee8245a4-8016-4d68-8857-0a6c18d25193",
+        "f6fff4e9-b66e-4f8c-8ee3-229e23b2e9dd"
+      ]
+    },
+    "00b6760a-b043-4504-91b2-a668b018320e": {
+      "id": "00b6760a-b043-4504-91b2-a668b018320e",
+      "name": "Check Supply Left",
+      "title": "\"<label>\" = Supply Left",
+      "description": "",
+      "properties": {
+        "label": "supply_left"
+      },
+      "display": {
+        "x": 624,
+        "y": -48
+      }
+    },
+    "215d3aff-2eb1-48d9-9729-a232a16e93c4": {
+      "id": "215d3aff-2eb1-48d9-9729-a232a16e93c4",
+      "name": "Compare",
+      "title": "\"<label>\" <op> <value>",
+      "description": "",
+      "properties": {
+        "label": "supply_left",
+        "op": "<",
+        "value": 3
+      },
+      "display": {
+        "x": 624,
+        "y": 36
+      }
+    },
+    "ff3f326c-758b-4e34-bbfc-2386cca8f7a8": {
+      "id": "ff3f326c-758b-4e34-bbfc-2386cca8f7a8",
+      "name": "Can Afford?",
+      "title": "Can Afford <UnitType>?",
+      "description": "",
+      "properties": {
+        "UnitType": "SUPPLYDEPOT"
+      },
+      "display": {
+        "x": 624,
+        "y": 132
+      }
+    },
+    "9b888afa-c169-4094-a67b-92ba1d426eb3": {
+      "id": "9b888afa-c169-4094-a67b-92ba1d426eb3",
+      "name": "Count Pending",
+      "title": "\"<label>\" = Count Pending <UnitType>",
+      "description": "",
+      "properties": {
+        "label": "pending_depots",
+        "UnitType": "SUPPLYDEPOT"
+      },
+      "display": {
+        "x": 744,
+        "y": 204
+      }
+    },
+    "aca8da7f-3429-46b1-8abb-46c3ae2c01bf": {
+      "id": "aca8da7f-3429-46b1-8abb-46c3ae2c01bf",
+      "name": "Compare",
+      "title": "\"<label>\" <op> <value>",
+      "description": "",
+      "properties": {
+        "label": "pending_depots",
+        "op": "<",
+        "value": 2
+      },
+      "display": {
+        "x": 624,
+        "y": 300
+      }
+    },
+    "b664d962-2cf5-48ce-a468-aaa7a01e5e14": {
+      "id": "b664d962-2cf5-48ce-a468-aaa7a01e5e14",
+      "name": "getPosFromUnit",
+      "title": "\"<label>\" = \"<unit>\" <steps> toward <dir>",
+      "description": "",
+      "properties": {
+        "label": "sd_pos",
+        "unit": "cc",
+        "steps": 8,
+        "dir": "map_center"
+      },
+      "display": {
+        "x": 624,
+        "y": 396
+      }
+    },
+    "f6fff4e9-b66e-4f8c-8ee3-229e23b2e9dd": {
+      "id": "f6fff4e9-b66e-4f8c-8ee3-229e23b2e9dd",
+      "name": "build",
+      "title": "\"<builder>\" build <structType> at \"<pos>\"",
+      "description": "",
+      "properties": {
+        "structType": "SUPPLYDEPOT",
+        "pos": "sd_pos",
+        "builder": "builder"
+      },
+      "display": {
+        "x": 624,
+        "y": 564
+      }
+    },
+    "ee8245a4-8016-4d68-8857-0a6c18d25193": {
+      "id": "ee8245a4-8016-4d68-8857-0a6c18d25193",
+      "name": "Find Unit",
+      "title": "\"<key>\" = any <unitType> unit",
+      "description": "",
+      "properties": {
+        "key": "builder",
+        "unitType": "SCV"
+      },
+      "display": {
+        "x": 624,
+        "y": 480
+      }
+    }
+  },
+  "display": {
+    "camera_x": 319.60000002384186,
+    "camera_y": 229.70000010728836,
+    "camera_z": 0.75,
+    "x": 0,
+    "y": 0
+  },
+  "custom_nodes": [
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Can Afford?",
+      "category": "condition",
+      "title": "Can Afford <UnitType>?",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Idle?",
+      "category": "condition",
+      "title": "is \"<label>\" idle?",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Train",
+      "category": "action",
+      "title": "\"<trainer>\" train <unitType>",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Compare",
+      "category": "condition",
+      "title": "\"<label>\" <op> <value>",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Check Supply Left",
+      "category": "action",
+      "title": "\"<label>\" = Supply Left",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Find Structure",
+      "category": "action",
+      "title": "\"<label>\" = any <UnitType> structure",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Count Pending",
+      "category": "action",
+      "title": "\"<label>\" = Count Pending <UnitType>",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "getPosFromUnit",
+      "category": "action",
+      "title": "\"<label>\" = \"<unit>\" <steps> toward <dir>",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Find Unit",
+      "category": "action",
+      "title": "\"<key>\" = any <unitType> unit",
+      "description": null,
+      "properties": {
+        "unitType": ""
+      }
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "build",
+      "category": "action",
+      "title": "\"<builder>\" build <structType> at \"<pos>\"",
+      "description": null,
+      "properties": {}
+    }
+  ]
+}
